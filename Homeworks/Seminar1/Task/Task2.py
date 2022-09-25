@@ -27,7 +27,7 @@ def True_or_False():
         for Y in range(2):
             for Z in range(2):
                 left_Value = not (X or Y or Z)
-                right_Value = not Z and not Y and not Z
+                right_Value = not X and not Y and not Z
                 if left_Value != right_Value:
                     out_red(f'X = {X}, Y = {Y}, Z = {Z}')
                     out_red(False)
