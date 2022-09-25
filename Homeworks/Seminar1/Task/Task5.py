@@ -14,7 +14,7 @@ print('Для завершения press ctrl + C \n')
 
 
 def LengthLine2D(x1, y1, x2, y2):
-    result = sqrt((x1-x2)**2 + (y2-y1)**2)
+    result = sqrt((x1 - x2) ** 2 + (y2 - y1) ** 2)
     return result
 
 
@@ -29,4 +29,4 @@ while True:
         continue
     length_line = LengthLine2D(
         x1_coordinate, y1_coordinate, x2_coordinate, y2_coordinate)
-    print(f'A({x1_coordinate},{y1_coordinate}); B({x2_coordinate},{y2_coordinate}) -> {round(length_line,3)}')
+    print(f'A({x1_coordinate},{y1_coordinate});B({x2_coordinate},{y2_coordinate}) -> {round(length_line,3)}')
