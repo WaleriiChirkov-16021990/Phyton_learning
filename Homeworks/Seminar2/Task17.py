@@ -24,7 +24,7 @@ multipli = list_numb(numb)
 print(f'{multipli}')
 list_ind = list(map(
     int,
-    input('Введите позиции для произведения значений: ')
+    input('Введите позиции для произведения значений через пробел: ')
     .split()))
 print(
     f'\nПроизведение последовательности = {Multipli_item_list(multipli,list_ind)}')
