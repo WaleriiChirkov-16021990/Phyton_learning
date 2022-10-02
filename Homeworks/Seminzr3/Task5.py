@@ -12,13 +12,13 @@ def get_fibonachi(n):
 
 def get_list_fibonachi(n):
     list_ = []
-    for i in range (- n, 0):
+    for i in range(- n, 0):
         if i % 2 == 0:
             list_.append(- (get_fibonachi(- i)))
         else:
             list_.append(get_fibonachi(- i))
     list_.append(0)
-    for i in range (1, n + 1):
+    for i in range(1, n + 1):
         list_.append(get_fibonachi(i))
     return list_
 
