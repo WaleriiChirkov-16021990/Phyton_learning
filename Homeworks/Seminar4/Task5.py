@@ -10,16 +10,11 @@ polynomial1 = 'file.txt'
 polynomial2 = 'test.txt'
 file_sum = 'Sum_file.txt'
 
-# Получение данных из файла
-
 
 def read_pol(path):
     with open(str(path), 'r') as data:
         pol = data.read()
     return pol
-
-
-# Получение списка кортежей каждого (<коэффициент>, <степень>)
 
 
 def convert_pol(pol):
@@ -38,9 +33,6 @@ def convert_pol(pol):
     return pol
 
 
-# Получение списка кортежей суммы (<коэф1 + коэф2>, <степень>)
-
-
 def get_list_pols(pol1, pol2):
     x = [0] * (max(pol1[0][1], pol2[0][1] + 1))
     for i in pol1 + pol2:
@@ -48,8 +40,6 @@ def get_list_pols(pol1, pol2):
     res = [(x[i], i) for i in range(len(x)) if x[i] != 0]
     res.sort(key=lambda r: r[1], reverse=True)
     return res
-
-# Составление итогового многочлена
 
 
 def get_sum_pol(pol):
@@ -83,14 +73,14 @@ def write_to_file(path, pol):
 pol1 = read_pol(polynomial1)
 pol2 = read_pol(polynomial2)
 
-print(pol2)
-print(pol1)
 
-pol1 = convert_pol(pol1)
+pol_1 = convert_pol(pol1)
 pol_2 = convert_pol(pol2)
 
-pol_sum = get_sum_pol(get_list_pols(pol1, pol_2))
+pol_sum = get_sum_pol(get_list_pols(pol_1, pol_2))
 
+print(pol1)
+print(pol2)
 print(pol_sum)
 
 write_to_file(file_sum, pol_sum)
