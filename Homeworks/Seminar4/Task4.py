@@ -5,7 +5,7 @@
 # - k=2 => 2*x² + 4*x + 5 = 0 или x² + 5 = 0 или 10*x² = 0
 
 
-from random import randint, choice
+from random import randint
 
 
 def get_polynomial_list(k):

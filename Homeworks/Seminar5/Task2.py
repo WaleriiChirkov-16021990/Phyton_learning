@@ -51,7 +51,7 @@ def get_step_1_gam(tup: tuple):
             continue
     col = tup[1] - gamer_1
     motion = tup[5] + 1
-    if tup[4] ==1:
+    if tup[4] == 1:
         opponent_ = 3
     else:
         opponent_ = 2
@@ -147,7 +147,8 @@ def select_mode():
     while True:
         try:
 
-            mode_ = int(input('\nКакой режим игры предпочитаете? Введите 1 для игры с ботом, или 2 для игры с другим игроком: '))
+            mode_ = int(input('\nКакой режим игры предпочитаете? \
+                Введите 1 для игры с ботом, или 2 для игры с другим игроком: '))
             if mode_ == 1 or mode_ == 2:
                 if mode_ == 2:
                     print('Вы выбрали режим игры с игроком!')

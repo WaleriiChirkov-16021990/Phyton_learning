@@ -16,4 +16,5 @@ def select_not_repetitive(a: list):
 
 list_ = list(map(int, input().split()))
 print(list_)
-print(f'Не повторяющиеся элементы из полученного списка: {select_not_repetitive(list_)}')
+print(f'Не повторяющиеся элементы из полученного списка: \
+    {select_not_repetitive(list_)}')
