@@ -6,6 +6,7 @@
 # def delete_word_args(lis, item):
 #     return [x for x in lis if x.count(item) == 0]
 
+
 # input_ = input('Введите текст который будем искать для удаления: ')
 # st = input(f'Введите текст, который содержит минимум 1 слово с \
 #     "{input_}": ').split()
@@ -17,6 +18,7 @@
 
 def delete_word_args(lis, item):
     return list(filter(lambda x: not x.count(item), lis))
+
 
 input_ = input('Введите текст который будем искать для удаления: ')
 st = input(f'Введите текст, который содержит минимум 1 слово с \
