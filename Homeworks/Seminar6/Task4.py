@@ -54,5 +54,7 @@ def get_difference_max_min_fractional(a: list):
 
 list_ = [1.1, 1.2, 3.1, 5, 10.01]
 print(f'{list_}\n')
-print(f'\
-    Разница между максимальным и минимальным значением дробной части элементов => {get_difference_max_min_fractional(sort_fractional_part(list_))}')
+print(\
+    f'Разница между максимальным и минимальным значением дробной части элементов\
+    => {get_difference_max_min_fractional(sort_fractional_part(list_))}'\
+    )
