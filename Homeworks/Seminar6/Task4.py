@@ -41,8 +41,8 @@
 
 
 def sort_fractional_part(a: list):
-    return [round(a[i] - int(a[i]), 2) if isinstance(a[i], float) else a[i] \
-        for i in range(len(a))]
+    return [round(a[i] - int(a[i]), 2) if isinstance(a[i], float)\
+            else a[i] for i in range(len(a))]
 
 
 def get_difference_max_min_fractional(a: list):

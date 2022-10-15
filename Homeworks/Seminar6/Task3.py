@@ -29,7 +29,7 @@
 def multipli_item(a: list):
     if len(a) % 2 != 0:
         return [a[i] * a[- 1 - i] if i <= int(len(a) / 2) \
-            else (a[int(len(a)/2) + 1] ** 2) \
+                else (a[int(len(a)/2) + 1] ** 2) \
                 for i in range(int(len(a) / 2) + 1)]
     return [a[- 1 - i] * a[i] for i in range(int(len(a) / 2))]
 
