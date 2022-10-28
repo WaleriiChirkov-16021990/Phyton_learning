@@ -1,7 +1,5 @@
 import cmath
 import datetime
-# import re
-# from tkinter import E
 from telebot import types
 import telebot
 from telebot import TeleBot
@@ -42,7 +40,6 @@ keyboard.row(   types.InlineKeyboardButton('+/-', callback_data='+/-'),
 
 value = ''
 old_value = ''
-msg = ''
 Help_MESSAGE = '/start, /calculater - вызывают калькулятор \n/log - бот пришлет файл логирования событий(историю)'
 
 
@@ -54,7 +51,7 @@ def logger_action(action: str):
 
 
 @bot.message_handler(content_types=['document'])
-def hello(msg: types.Message):
+def hello_document(msg: types.Message):
     file = bot.get_file(msg.document.file_id)
     downloaded_file = bot.download_file(file.file_path)
     with open(msg.document.file_name, 'wb') as f_out:
@@ -63,13 +60,13 @@ def hello(msg: types.Message):
 
 
 @bot.message_handler(commands=['help'])
-def echo(message: types.Message):
+def help_answer(message: types.Message):
     logger_action('посмотрел справку.')
     bot.send_message(message.from_user.id, text=Help_MESSAGE)
 
 
 @bot.message_handler(commands=['log'])
-def hello(msg: types.Message):
+def bay_bay_log(msg: types.Message):
     bot.send_message(chat_id=msg.from_user.id,
                      text='лог')
     logger_action(f'{msg.from_user} скачал файл логгера.')
@@ -87,7 +84,7 @@ def start(message: telebot.types.Message):
 
 
 @bot.callback_query_handler(func=lambda call: True)
-def callback_func(query):
+def callback_function(query):
     global value, old_value
     data = query.data
 
@@ -110,7 +107,7 @@ def callback_func(query):
     elif data == '1/x':
         if value != '':
             try:
-                value = str(1/(eval(value)))
+                value = str(1 / (eval(value)))
             except:
                 value = 'Error'
         else:
@@ -199,4 +196,4 @@ def callback_func(query):
         value = ''
 
 
-bot.polling(non_stop=False, interval=0)
+bot.polling(non_stop=True, interval=0)
