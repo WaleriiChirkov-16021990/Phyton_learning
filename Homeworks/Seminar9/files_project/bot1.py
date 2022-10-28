@@ -182,8 +182,9 @@ def callback_function(query):
                 old_value = '0'
             else:
                 bot.edit_message_text(\
-                    chat_id=query.message.chat.id,                          message_id=query.message.message_id,\
-                    text=value, reply_markup=keyboard)
+                    chat_id=query.message.chat.id,\
+                        message_id=query.message.message_id,\
+                            text=value, reply_markup=keyboard)
                 old_value = value
         else:
             raise Exception
