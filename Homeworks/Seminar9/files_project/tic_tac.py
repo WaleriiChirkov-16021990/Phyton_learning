@@ -52,7 +52,7 @@ def start_game():
     while not flag:
         draft_board(game_board)
         if count_ % 2 == 0:
-            char = f'{emo(":red_heart:")}'
+            char = f'{emo(":red_heart:", variant = "emoji_type")}'
         else:
             char = f'{emo(":pile_of_poo:")}'
         get_input(game_board, char)
