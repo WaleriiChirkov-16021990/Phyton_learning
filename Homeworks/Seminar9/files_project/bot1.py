@@ -91,6 +91,14 @@ def start(message: telebot.types.Message):
         bot.send_message(message.from_user.id, value, reply_markup=keyboard)
 
 
+@bot.message_handler(content_types=['text'])
+def text_answer(msg: types.Message):
+    if msg.text.lower() == 'привет' or msg.text.lower() == 'hello':
+        bot.send_message(msg.from_user.id, text=f'Привет, {msg.from_user.first_name}')
+    else:
+        bot.send_message(msg.from_user.id, text=f'{msg.from_user.first_name}, мой функционал ограничен, используйте команду "/help".')
+
+
 @bot.callback_query_handler(func=lambda call: True)
 def callback_function(query):
     global value, old_value
@@ -197,9 +205,9 @@ def callback_function(query):
     elif data == '+/-':
         try:
             value = str( eval(value) * -1 )
-            logger_action(f'получил значение {value}')
         except:
             value = 'Error'
+        logger_action(f'получил значение {value}')
     elif data == '0':
         try:
             if old_value != '0':
