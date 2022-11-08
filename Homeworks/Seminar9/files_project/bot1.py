@@ -11,12 +11,17 @@ keyboard = types.InlineKeyboardMarkup()
 keyboard.row(   types.InlineKeyboardButton('j', callback_data='j'),
                 types.InlineKeyboardButton('C', callback_data='c'),
                 types.InlineKeyboardButton('<=', callback_data='<='),
-                types.InlineKeyboardButton('/', callback_data='/'))
+                types.InlineKeyboardButton('Pi', callback_data='pi'))
 
 keyboard.row(   types.InlineKeyboardButton('%', callback_data='%'),
                 types.InlineKeyboardButton('1/x', callback_data='1/x'),
                 types.InlineKeyboardButton('x^2', callback_data='x^2'),
-                types.InlineKeyboardButton('2^x', callback_data='2^x'))
+                types.InlineKeyboardButton('√', callback_data='2^x'))
+
+keyboard.row(   types.InlineKeyboardButton('sin', callback_data='sin'),
+                types.InlineKeyboardButton('cos', callback_data='cos'),
+                types.InlineKeyboardButton('tg', callback_data='tan'),
+                types.InlineKeyboardButton('/', callback_data='/'))
 
 keyboard.row(   types.InlineKeyboardButton('7', callback_data='7'),
                 types.InlineKeyboardButton('8', callback_data='8'),
@@ -37,6 +42,9 @@ keyboard.row(   types.InlineKeyboardButton('+/-', callback_data='+/-'),
                 types.InlineKeyboardButton('0', callback_data='0'),
                 types.InlineKeyboardButton(',', callback_data='.'),
                 types.InlineKeyboardButton('=', callback_data='='))
+
+keyboard.row(   types.InlineKeyboardButton('(', callback_data='('),
+                types.InlineKeyboardButton(')', callback_data=')'))
 
 value = ''
 old_value = ''
@@ -104,12 +112,51 @@ def callback_function(query):
                 value = 'Error'
         else:
             pass
+    elif data == 'sin':
+        if value != '':
+            try:
+                value = str(math.sin(eval(value)))
+            except:
+                try:
+                    value = str(cmath.sin(eval(value)))
+                except:
+                    value = 'Error'
+        else:
+            value = str(math.sin(0))
+        logger_action(f'получил значение {value}')
+    elif data == 'cos':
+        if value != '':
+            try:
+                value = str(math.cos(eval(value)))
+            except:
+                try:
+                    value = str(cmath.cos(eval(value)))
+                except:
+                    value = 'Error'
+        else:
+            value = str(math.cos(0))
+        logger_action(f'получил значение {value}')
+    elif data == 'tan':
+        if value != '':
+            try:
+                value = str(math.tan(eval(value)))
+            except:
+                try:
+                    value = str(cmath.tan(eval(value)))
+                except:
+                    value = 'Error'
+        else:
+            value = str(math.tan(0))
+        logger_action(f'получил значение {value}')
+    elif data == 'pi':
+        value += str(math.pi)
     elif data == '1/x':
         if value != '':
             try:
                 value = str(1 / (eval(value)))
             except:
                 value = 'Error'
+            logger_action(f'получил значение {value}')
         else:
             pass
     elif data == 'x^2':
@@ -118,6 +165,7 @@ def callback_function(query):
                 value = str(pow(eval(value), 2))
             except:
                 value = 'Error'
+            logger_action(f'получил значение {value}')
         else:
             pass
     elif data == '2^x':
@@ -129,6 +177,7 @@ def callback_function(query):
                     value = str(math.sqrt(eval(value)))
             except:
                 value = 'Error'
+            logger_action(f'получил значение {value}')
         else:
             pass
     elif data == '=':
@@ -144,11 +193,13 @@ def callback_function(query):
     elif data == '<=':
         if value != '':
             value = value[:-1]
+            logger_action(f'получил значение {value}')
         else:
             pass
     elif data == '+/-':
         try:
             value = str( eval(value) * -1 )
+            logger_action(f'получил значение {value}')
         except:
             value = 'Error'
     elif data == '0':
