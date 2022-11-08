@@ -97,9 +97,7 @@ def callback_function(query):
     data = query.data
 
     logger_action(f'внес данные: {data} .')
-    if data == 'no':
-        pass
-    elif data == 'c':
+    if data == 'c':
         if old_value != '':
             value = ''
         else:
